@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Engine I</title>
+</head>
+<body>
+    <h1>Movie Search Engine I </h1>
+    <input type="text"  id="name" placeholder="Movie Name ">
+    <button onClick="searchMovie()">Search Movie</button>
+</body>
+</html>
+<script type="text/javascript">
+    async function searchMovie(){
+        try{
+        let name = document.getElementById('name').value;
+
+        let response = await fetch(`http://www.omdbapi.com/?apikey=efd7bf97&t=${name}`);
+
+        let data = await response.json()
+
+        console.log(data);
+        }catch(error){
+            console.log(error)
+        }
+    }
+</script>
